@@ -7,7 +7,7 @@ module.exports = {
     mode: "development",//模式 "production" | "development" | "none"
     // 打包入口
     entry: {
-        test: ["babel-polyfill",path.resolve(__dirname, "src/redux/app.js")],
+        test: ["babel-polyfill", path.resolve(__dirname, "src/app.js")],
     },
     //输入路径和文件名
     output: {
@@ -18,14 +18,18 @@ module.exports = {
     devServer: {
         historyApiFallback: true, //处理404
         contentBase: path.join(__dirname, 'dist'),
-        port: 9000 //启动端口
+        port: 9000, //启动端口
+        host: '0.0.0.0'//允许外部机器访问
     },
     module: {
         //解析模块的规则
         rules: [
             {
                 test: /\.js$|\.jsx$/,
-                loader: "babel-loader"
+                use: [
+                    {
+                        loader: "babel-loader"
+                    }]
             },
             {
                 test: /\.css$/,
@@ -39,6 +43,16 @@ module.exports = {
                         javascriptEnabled: true
                     }
                 }],
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            },
+            {
+                test: /\.svg$/,
+                use: ['@svgr/webpack'],
             }
         ]
     },

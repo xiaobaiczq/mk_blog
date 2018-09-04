@@ -3,6 +3,8 @@ import React from "react";
 import ReactDom from "react-dom";
 import {Provider} from "react-redux";
 import Routes from "./router/route";
+import mock from "./mock/mock";
+
 
 
 document.body.innerHTML = "<div id='root'></div>";

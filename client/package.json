@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^3.8.4",
+    "axios": "^0.18.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
@@ -21,6 +22,7 @@
     "redux-saga": "^0.16.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^2.3.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-import": "^1.8.0",
@@ -32,10 +34,12 @@
     "css-loader": "^1.0.0",
     "eslint": "^5.4.0",
     "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.2",
+    "mockjs": "^1.0.1-beta3",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.17.1",
