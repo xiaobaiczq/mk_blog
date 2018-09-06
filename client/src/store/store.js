@@ -1,6 +1,8 @@
-import {createStore, applyMiddleware, compose} from 'redux';
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
+
 import createSagaMiddleware from 'redux-saga';
-import basicReducer from "./../reducer/reducer";
+import homeReducer from "../reducer/homeReducer";
+import globalReducer from "../reducer/globalReducer";
 import rootSaga from "../saga/rootSaga";
 
 // create the saga middleware
@@ -9,7 +11,7 @@ const sagaMiddleware = createSagaMiddleware();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // mount it on the Store
 const store = createStore(
-    basicReducer,
+    combineReducers({home: homeReducer, global: globalReducer}),
     composeEnhancers(
         applyMiddleware(sagaMiddleware))
 )

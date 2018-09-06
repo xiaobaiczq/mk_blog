@@ -13,7 +13,7 @@ class _Footer extends React.Component {
 
     render() {
         return <Footer style={{textAlign: 'center'}}>
-            <Pagination defaultCurrent={1} total={50}/>
+            Ant Design ©2018 Created by Ant UED
         </Footer>
 
     }

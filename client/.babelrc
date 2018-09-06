@@ -12,6 +12,7 @@
         "style": true  //是否解析antd less
       }
     ],
-    ["transform-class-properties"]//属性初始化器语法
+    ["transform-class-properties"],//属性初始化器语法
+    ["transform-object-rest-spread"]// ...操作符
   ]
 }

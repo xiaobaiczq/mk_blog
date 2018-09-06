@@ -1,12 +1,13 @@
 import {Switch, Route, HashRouter as Router} from 'react-router-dom';
 import React from "react";
-import Layout from "../component/layout/_Layout";
+import Home from "../component/home/Home";
+
 
 
 export default function Routes() {
     return <Router>
         <Switch>
-            <Route exact path="/" component={Layout}/>
+            <Route path="/" component={Home}/>
         </Switch>
     </Router>
 }
