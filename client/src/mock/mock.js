@@ -1,4 +1,4 @@
-import Mock,{Random} from "mockjs";
+import Mock, {Random} from "mockjs";
 
 const navListTemplate = {
     code: "1",
@@ -51,50 +51,51 @@ const navListTemplate = {
     }
 }
 
-function articleList(subNavId) {
-    var title = ""
-    if (subNavId == "1") {
-        title = "javscript ";
-    } else if (subNavId == "2") {
-        title = "node js ";
-    } else if (subNavId == "3"){
-        title = "react ";
-    }
-    else {
-        title = "操作系统 ";
-    }
-    var articleList = [];
-    for (let i = 0; i < 3; i++) {
-        articleList.push({
-            id: i + 1,
-            title: title+Random.first(),
-            "description": Random.cparagraph(1),
-            content: Random.cparagraph(4,10),
-            img: Random.image("544x336",Random.hex(), '#FFF',Random.last()),
-            createTime: Random.date(),
-            'viewNum|1-100': 1,
-            'likeNum|1-50': 1,
-            href: 'http://ant.design'
-        })
-    }
-    return {
-        code: "1",
-        msg: "success",
-        data: {
-            articleList: articleList
+function mockArticleList() {
+    for (let i = 1; i <= 4; i++) {
+        var articleList = [];
+        var title = ""
+        if (i == "1") {
+            title = "javscript ";
+        } else if (i == "2") {
+            title = "node js ";
+        } else if (i == "3") {
+            title = "react ";
         }
+        else {
+            title = "操作系统 ";
+        }
+        [1,2,3,4,5].map(()=>{
+            articleList.push({
+                id: i + 1,
+                title: title + Random.first(),
+                "description": Random.cparagraph(1),
+                content: Random.cparagraph(4, 10),
+                img: Random.image("544x336", Random.hex(), '#FFF', Random.last()),
+                createTime: Random.date(),
+                'viewNum|1-100': 1,
+                'likeNum|1-50': 1,
+                href: 'http://ant.design'
+            })
+        });
+        var mockData = {
+            code: "1",
+            msg: "success",
+            data: {
+                'articleList': articleList
+            }
+        }
+        var regExp = new RegExp("\\/REST\\/articleList\\?navId=1&subNavId=" + i);
+        Mock.mock(regExp, mockData);
     }
+
+
 }
 
 Mock.setup({
     timeout: 1000
 })
 Mock.mock(/\/REST\/navList/, navListTemplate);
-
-Mock.mock(/\/REST\/articleList\?navId=1&subNavId=1/, articleList(1));
-Mock.mock(/\/REST\/articleList\?navId=1&subNavId=2/, articleList(2));
-Mock.mock(/\/REST\/articleList\?navId=1&subNavId=3/, articleList(3));
-Mock.mock(/\/REST\/articleList\?navId=1&subNavId=4/, articleList(4));
-
+mockArticleList();
 
 export default Mock;

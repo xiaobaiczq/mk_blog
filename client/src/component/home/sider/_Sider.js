@@ -1,7 +1,7 @@
 import  React from "react";
 import {Layout, Menu, Icon} from 'antd';
 import PropTypes from 'prop-types';
-import less from "./_Sider.less";
+import "./_Sider.less";
 const {Sider} = Layout;
 const {SubMenu} = Menu;
 
@@ -26,10 +26,10 @@ class _Sider extends React.Component {
     onChooseNavigation = ({navName, subNavName,navId,subNavId}) => {
         return () => {
             if (subNavName) {
-                this.props.history.push("/" + navName + "/" + subNavName);
+                this.props.history.push("/home/"+navName + "/" + subNavName);
                 this.props.getHomeArticleList({navId,subNavId})
             } else {
-                this.props.history.push("/" + navName)
+                this.props.history.push("/home/"+"/"+ navName)
             }
         }
 

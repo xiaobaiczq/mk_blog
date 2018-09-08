@@ -1,9 +1,8 @@
-import {connect} from "react-redux"
-import _Sider from "../component/sider/_Sider";
+import _Sider from "../../component/home/sider/_Sider";
 import {bindActionCreators} from 'redux';
-import  {getHomeNavList} from "../action/siderAction";
-import  {getHomeArticleList} from "../action/articleAction";
-
+import  {getHomeNavList} from "../../action/siderAction";
+import  {getHomeArticleList} from "../../action/articleAction";
+import {connect} from "react-redux"
 
 const mapStateToProps = (state, ownProps) => {
     return {

@@ -1,8 +1,8 @@
 import {connect} from "react-redux"
-import _Content from "../component/content/_Content";
+import ArticleList from "../../component/home/articleList/ArticleList";
 import {bindActionCreators} from 'redux';
-import  {startFetching, endFetching} from "../action/globalAction";
-import  {getHomeArticleList} from "../action/articleAction";
+import  {startFetching, endFetching} from "../../action/globalAction";
+import  {getHomeArticleList} from "../../action/articleAction";
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(_Content);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);

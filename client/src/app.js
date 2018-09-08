@@ -2,7 +2,7 @@ import store from "./store/store";
 import React from "react";
 import ReactDom from "react-dom";
 import {Provider} from "react-redux";
-import Routes from "./route/route";
+import Routes from "./route/Routes";
 import mock from "./mock/mock";
 
 

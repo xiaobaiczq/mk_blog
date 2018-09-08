@@ -2,11 +2,11 @@ import  React from "react";
 import {Layout, Breadcrumb, Spin} from 'antd';
 const {Content} = Layout;
 import PropTypes from 'prop-types';
-import style from "./_Content.less";
+import "./_Content.less";
 import ArticleList from "../articleList/ArticleList";
 
 
-class _Content extends React.Component {
+class ArticleContainer extends React.Component {
 
 
     constructor(props) {
