@@ -1,5 +1,7 @@
 import  React from "react";
 import { Skeleton, List, Icon } from 'antd';
+import { Link } from 'react-router-dom';
+import "./ArticleList.less";
 
 class ArticleList extends React.Component {
 
@@ -22,7 +24,7 @@ class ArticleList extends React.Component {
         if(articleList.length===0){
             return <div></div>
         }
-        return <List
+        return <List className="home-article-list"
             itemLayout="vertical"
             size="large"
             pagination={{
@@ -43,7 +45,10 @@ class ArticleList extends React.Component {
                                 src={item.img}/>}
                 >
                     <List.Item.Meta
-                        title={<a href={item.href}>{item.title}</a>}
+                        title={<Link to={{
+                            pathname: item.href,
+                            search: `?navId=${item.navId}&subNavId=${item.subNavId}&id=${item.id}`,
+                        }}>{item.title}</Link>}
                         description={item.description}
                     />
                     {item.content}

@@ -12,3 +12,15 @@ export const getHomeArticleList = function ({navId,subNavId, pageIndex, pageSize
     }
     return action
 }
+
+
+
+export const getArticleDetail=function({navId,subNavId}){
+    return {
+        type:homeArticleActionsTypes.HOME_GET_ARTICLES_DETAIL,
+        params:{
+            navId:navId,
+            subNavId:subNavId
+        }
+    }
+}

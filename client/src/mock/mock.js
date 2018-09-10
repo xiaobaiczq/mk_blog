@@ -65,9 +65,9 @@ function mockArticleList() {
         else {
             title = "操作系统 ";
         }
-        [1,2,3,4,5].map(()=>{
+        [1, 2, 3, 4, 5].map(() => {
             articleList.push({
-                id: i + 1,
+                'id|+1':  1,
                 title: title + Random.first(),
                 "description": Random.cparagraph(1),
                 content: Random.cparagraph(4, 10),
@@ -75,7 +75,9 @@ function mockArticleList() {
                 createTime: Random.date(),
                 'viewNum|1-100': 1,
                 'likeNum|1-50': 1,
-                href: 'http://ant.design'
+                href: 'detail',
+                navId:i,
+                subNavId:i
             })
         });
         var mockData = {
@@ -85,17 +87,35 @@ function mockArticleList() {
                 'articleList': articleList
             }
         }
-        var regExp = new RegExp("\\/REST\\/articleList\\?navId=1&subNavId=" + i);
+        var regExp = new RegExp("\\/REST\\/article\/list\\?navId=1&subNavId=" + i);
         Mock.mock(regExp, mockData);
     }
-
-
 }
+
+
+const detailTemplate = {
+    code:"1",
+    msg:"success",
+    data:{
+        detail: {
+            "id|+1": 1,
+            title: Random.first(),
+            "description": Random.cparagraph(1),
+            content: Random.cparagraph(4, 10),
+            img: Random.image("544x336", Random.hex(), '#FFF', Random.last()),
+            createTime: Random.date(),
+            'viewNum|1-100': 1,
+            'likeNum|1-50': 1,
+            href: 'detail'
+        },
+    }
+};
 
 Mock.setup({
     timeout: 1000
 })
 Mock.mock(/\/REST\/navList/, navListTemplate);
+Mock.mock(/\/REST\/article\/detail/, detailTemplate);
 mockArticleList();
 
 export default Mock;

@@ -4,6 +4,8 @@ import {homeSiderActionsTypes,homeArticleActionsTypes} from "../constant/actionT
 const initialState = {
     navList: [],
     articleList: [],
+    detail:{
+    }
 }
 
 function homeReducer(state = initialState, action) {
@@ -15,6 +17,10 @@ function homeReducer(state = initialState, action) {
         case homeArticleActionsTypes.HOME_GET_ARTICLES_SUCCESS: {
             const articleList = action.data.articleList;
             return {...state,articleList}
+        }
+        case homeArticleActionsTypes.HOME_GET_ARTICLES_DETAIL_SUCCESS: {
+            const detail = action.data.detail;
+            return {...state,detail}
         }
         default:
             return state;

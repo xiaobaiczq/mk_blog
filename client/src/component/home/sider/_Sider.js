@@ -26,7 +26,7 @@ class _Sider extends React.Component {
     onChooseNavigation = ({navName, subNavName,navId,subNavId}) => {
         return () => {
             if (subNavName) {
-                this.props.history.push("/home/"+navName + "/" + subNavName);
+                this.props.history.push("/home/"+navName + "/" + subNavName+`/list?navId=${navId}&subNavId=${subNavId}`);
                 this.props.getHomeArticleList({navId,subNavId})
             } else {
                 this.props.history.push("/home/"+"/"+ navName)

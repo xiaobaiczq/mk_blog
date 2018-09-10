@@ -7,6 +7,8 @@ export const homeSiderActionsTypes = {
 export const homeArticleActionsTypes = {
     HOME_GET_ARTICLES: "HOME_GET_ARTICLES",
     HOME_GET_ARTICLES_SUCCESS: "HOME_GET_ARTICLES_SUCCESS",
+    HOME_GET_ARTICLES_DETAIL: "HOME_GET_ARTICLES_DETAIL",
+    HOME_GET_ARTICLES_DETAIL_SUCCESS: "HOME_GET_ARTICLES_DETAIL_SUCCESS",
 }
 
 export const globalActionsTypes = {

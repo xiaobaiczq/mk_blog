@@ -1,4 +1,4 @@
-import {Switch, Route, HashRouter as Router} from 'react-router-dom';
+import {Switch, Route, HashRouter as Router,Redirect} from 'react-router-dom';
 import React from "react";
 import {Spin} from "antd";
 import Home from "../component/home/Home";
@@ -14,7 +14,7 @@ class Routes extends React.Component {
         return <Router>
             <div>
                 <Switch>
-                    <Route path="/" exact component={Home}/>
+                    <Redirect from='/' exact to={`/home/随笔/javascript/list?navId=1&subNavId=1`}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/admin" component={Admin}/>
                 </Switch>
