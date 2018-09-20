@@ -22,7 +22,7 @@ class ArticleList extends React.Component {
             <span><Icon type={type} style={{marginRight: 8}}/>{text}</span>
         );
         if(articleList.length===0){
-            return <div></div>
+            return <div className="home-article-list"></div>
         }
         return <List className="home-article-list"
             itemLayout="vertical"

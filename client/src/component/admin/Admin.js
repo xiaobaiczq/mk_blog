@@ -5,6 +5,7 @@ import {Layout,Breadcrumb,Menu,Icon } from 'antd';
 import {Switch, Route, HashRouter as Router,Redirect } from 'react-router-dom';
 import ArticleList from "./articleList/ArticleList";
 import ArticleCreate from "./articleCreate/ArticleCreate";
+import TagManage from "./tagManage/TagManage";
 
 export  default  class Admin extends React.Component {
 
@@ -26,6 +27,7 @@ export  default  class Admin extends React.Component {
                         <Switch>
                             <Redirect  from='/admin' exact={true} to="/admin/article/manage"></Redirect>
                             <Route path="/admin/article/create" exact={true} component={ArticleCreate}></Route>
+                            <Route path="/admin/tag/manage"  exact={true} component={TagManage}></Route>
                             <Route path="/admin/*/manage"  exact={true} component={ArticleList}></Route>
                         </Switch>
                     </Router>
