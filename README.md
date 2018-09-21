@@ -1,10 +1,10 @@
 # mk_blog
 koa+react+redux-saga+antd starter
 
-cd client
+# cd client
 
-npm install
+# npm install
 
-npm start
+# npm start
 
-![image](https://github.com/xiaobaiczq/mk_blog/blob/master/record/base.gif)
+# ![image](https://github.com/xiaobaiczq/mk_blog/blob/master/record/base.gif)
