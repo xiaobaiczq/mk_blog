@@ -1,10 +1,11 @@
-import {Switch, Route, HashRouter as Router,Redirect} from 'react-router-dom';
+import {Switch, Route, HashRouter as Router, Redirect} from 'react-router-dom';
 import React from "react";
-import {Spin} from "antd";
-import Home from "../component/home/Home";
-import Admin from "../component/admin/Admin";
+// import {Spin} from "antd";
+// import Home from "../component/home/Home";
+// import Admin from "../component/admin/Admin";
 import {connect} from "react-redux";
 import "./Route.less"
+import  Game from "../component/game/Game";
 
 
 class Routes extends React.Component {
@@ -14,14 +15,15 @@ class Routes extends React.Component {
         return <Router>
             <div>
                 <Switch>
-                    <Redirect from='/' exact to={`/home/随笔/javascript/list?navId=1&subNavId=1`}/>
-                    <Route path="/home" component={Home}/>
-                    <Route path="/admin" component={Admin}/>
+                    {/*<Redirect from='/' exact to={`/home/随笔/javascript/list?navId=1&subNavId=1`}/>*/}
+                    {/*<Route path="/home" component={Home}/>*/}
+                    {/*<Route path="/admin" component={Admin}/>*/}
+                    <Route path="/" component={Game}/>
                 </Switch>
-                {isFetching && <div id="global-loading">
-                    <Spin size="large" tip="Loading...">
-                    </Spin>
-                </div>}
+                {/*{isFetching && <div id="global-loading">*/}
+                    {/*<Spin size="large" tip="Loading...">*/}
+                    {/*</Spin>*/}
+                {/*</div>}*/}
             </div>
         </Router>
     }
