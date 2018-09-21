@@ -155,6 +155,41 @@ class Game extends React.Component {
 
                 </Row>
 
+                <Row type="flex" justify="space-around" style={{margin: "30px 0"}}>
+                    <Col > <Card
+                        style={{width: 300}}
+                        cover={<img alt="example"
+                                    src={img11}/>}
+
+                    >
+                        <Meta
+                            title="带着你玩水"
+                            description="喜欢看着你呆呆的样子"
+                        />
+                    </Card></Col>
+                    <Col > <Card
+                        style={{width: 300}}
+                        cover={<img alt="example"
+                                    src={img5}/>}
+                    >
+                        <Meta
+                            title="最近的一次合影"
+                            description="发现这样挺搭的,哈哈"
+                        />
+                    </Card></Col>
+                    <Col > <Card
+                        style={{width: 300}}
+                        cover={<img alt="example"
+                                    src={img15}/>}
+                    >
+                        <Meta
+                            title="带你去流浪"
+                            description="这里是我最喜欢的地方"
+                        />
+                    </Card></Col>
+
+                </Row>
+
                 <audio controls="controls" id="audio" style={{display:"none"}}>
                     <source src={audio1} type="audio/mpeg"/>
                     Your browser does not support the audio element.
