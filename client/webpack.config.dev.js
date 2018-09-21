@@ -61,7 +61,7 @@ module.exports = {
         extensions: [".jsx", ".js"]
     },
     plugins: [
-        new htmlWebpackPlugin({title: "mk_blog"}),
+        new htmlWebpackPlugin({title: "丫头,谢谢你"}),
         new cleanWebpackPlugin(['dist']),
         new miniCssExractPlugin({
             filename: "[name].css"
