@@ -4,7 +4,7 @@ var cleanWebpackPlugin = require("clean-webpack-plugin");// build 之前删除di
 var miniCssExractPlugin = require("mini-css-extract-plugin");//从js中分离css文件
 
 module.exports = {
-    mode: "development",//模式 "production" | "development" | "none"
+    mode: "production",//模式 "production" | "development" | "none"
     // 打包入口
     entry: {
         test: ["babel-polyfill", path.resolve(__dirname, "src/app.js")],
