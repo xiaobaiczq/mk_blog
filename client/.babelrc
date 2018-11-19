@@ -13,6 +13,7 @@
       }
     ],
     ["transform-class-properties"],//属性初始化器语法
-    ["transform-object-rest-spread"]// ...操作符
+    ["transform-object-rest-spread"],// ...操作符
+    [ "add-module-exports"]
   ]
 }
