@@ -1,5 +1,5 @@
 import  React from "react";
-import Zmage from 'react-zmage'
+// import Zmage from 'react-zmage';
 import {Carousel} from 'antd';
 import "./Game.less";
 // import img1 from "./img/1.jpg";
@@ -180,7 +180,7 @@ class Game extends React.Component {
                     return <Row type="flex" key={'row'+index} justify="space-around" style={{margin: "30px 0"}}>
                         {itemArr.map(item => <Col key={'col'+item.url}><Card
                                 style={{width: 300}}
-                                cover={<Zmage alt="example"
+                                cover={<img alt="example"
                                               src={item.url}/>}>
                                 <Meta
                                     title={item.title}
