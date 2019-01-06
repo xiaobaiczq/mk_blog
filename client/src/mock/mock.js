@@ -111,11 +111,31 @@ const detailTemplate = {
     }
 };
 
+const userTemplate = {
+    code:"1",
+    msg:"success",
+    data:{
+        userInfo: {
+            "code": "1",
+            "msg": "登录成功",
+            "data": {
+                "_id": "5c30c64c32628a22e8c06189",
+                "username": "mark",
+                "password": "123",
+                "status": 1,
+                "__v": 0
+            }
+        }
+    }
+};
+
+
 Mock.setup({
     timeout: 1000
 })
 Mock.mock(/\/REST\/navList/, navListTemplate);
 Mock.mock(/\/REST\/article\/detail/, detailTemplate);
+Mock.mock(/\/REST\/user\/isLogin/, detailTemplate);
 mockArticleList();
 
 export default Mock;

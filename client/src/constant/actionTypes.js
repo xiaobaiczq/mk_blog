@@ -11,6 +11,11 @@ export const homeArticleActionsTypes = {
     HOME_GET_ARTICLES_DETAIL_SUCCESS: "HOME_GET_ARTICLES_DETAIL_SUCCESS",
 }
 
+export const userActionTypes={
+    USER_LOGIN:"USER_LOGIN",
+    USER_GET:"USER_GET"
+}
+
 export const globalActionsTypes = {
     FETCH_START: "FETCH_START",
     FETCH_END: "FETCH_END",

@@ -19,8 +19,7 @@ class Detail extends React.Component {
     render() {
         const {content, createTime, description, href, id, img, likeNum, title, viewNum} = this.props.articleDetail;
         return <Card className="home-article-detail"
-            actions={[<span><Icon type="dashboard"/>{createTime}</span>, <span><Icon type="eye"/>{viewNum}</span>,
-                <span><Icon type="star"/>{likeNum}</span>]}>
+            actions={[<span><Icon type="dashboard"/>{createTime}</span>, <span><Icon type="eye"/>{viewNum}</span>]}>
             <Meta
                 avatar={<Avatar src={img}/>}
                 title={title}

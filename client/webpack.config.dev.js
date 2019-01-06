@@ -4,7 +4,7 @@ var cleanWebpackPlugin = require("clean-webpack-plugin");// build 之前删除di
 var miniCssExractPlugin = require("mini-css-extract-plugin");//从js中分离css文件
 
 module.exports = {
-    mode: "production",//模式 "production" | "development" | "none"
+    mode: "development",//模式 "production" | "development" | "none"
     // 打包入口
     entry: {
         test: ["babel-polyfill", path.resolve(__dirname, "src/app.js")],
@@ -19,7 +19,14 @@ module.exports = {
         historyApiFallback: true, //处理404
         contentBase: path.join(__dirname, 'dist'),
         port: 9000, //启动端口
-        host: '0.0.0.0'//允许外部机器访问
+        host: '0.0.0.0',//允许外部机器访问
+        proxy:{
+            '/REST': {
+                target: 'http://localhost:8888',
+                secure: false, // 接受 运行在 https 上的服务
+                changeOrigin: true
+            }
+        }
     },
     module: {
         //解析模块的规则
@@ -61,7 +68,7 @@ module.exports = {
         extensions: [".jsx", ".js"]
     },
     plugins: [
-        new htmlWebpackPlugin({title: "小白,生日快乐"}),
+        new htmlWebpackPlugin({title: "时间再长，也挡不住想你"}),
         new cleanWebpackPlugin(['dist']),
         new miniCssExractPlugin({
             filename: "[name].css"

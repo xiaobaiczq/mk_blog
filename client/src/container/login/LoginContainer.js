@@ -1,5 +1,5 @@
 import {connect} from "react-redux"
-import ArticleList from "../../component/home/articleList/ArticleList";
+import Login from "../../component/login/Login";
 import {bindActionCreators} from 'redux';
 import  {startFetching, endFetching} from "../../action/globalAction";
 import  {getHomeArticleList} from "../../action/articleAction";
@@ -7,8 +7,6 @@ import  {getHomeArticleList} from "../../action/articleAction";
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        userInfo:state.home.userInfo,
-        articleList: state.home.articleList,
         isFetching: state.global.isFetching,
         ...ownProps};
 }
@@ -16,10 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         startFetching: bindActionCreators(startFetching, dispatch),
-        endFetching:bindActionCreators(endFetching, dispatch),
-        getHomeArticleList: bindActionCreators(getHomeArticleList, dispatch)
     }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -2,27 +2,28 @@ var koa = require("koa");
 var bodyparser = require("koa-bodyparser");
 var  Router = require('koa-router')
 var path=require('path')
-const static = require('koa-static')
+var static = require('koa-static')
+var userRouter=require("./router/UserRouter");
+var mongoose = require('mongoose');
+
+
 
 var app = new koa();
 
 
 app.use(bodyparser());
-// app.use(async ctx => {
-//     await console.log(ctx.request.body)
-//     ctx.body = 'Hello World';
-// });
-const staticPath = './dist'
 
-app.use(static(
-    path.join( __dirname,  staticPath)
-))
 
-var router=new Router();
-router.get(/\//,async (ctx,next)=>{
-    ctx.redirect('/dist/index.html');
-})
 
-app.listen(9000, () => {
-    console.log("server start in 9000");
+app.use(userRouter.routes()).use(userRouter.allowedMethods());
+
+app.listen(8888, () => {
+    mongoose.connect('mongodb://localhost/mk_blog');
+    var db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'db connection error:'));
+    db.once('open', function () {
+        // we're connected!
+        console.log("db connetcted")
+    });
+    console.log("server start in 8888");
 });
