@@ -11,9 +11,10 @@ var fs = require("fs");
 
 var app = new koa();
 var distPath=path.join(__dirname , '../../client/dist');
-app.use(static(distPath));
-app.use(static(__dirname + '/static'));
+app.use(static(distPath,{maxage:1000*60*60*24*7}));
+app.use(static(__dirname + '/static',{maxage:1000*60*60*24*7}));
 app.use(bodyparser());
+
 
 function readBuildJS() {
     return new Promise((resolve, reject) => {
@@ -35,6 +36,7 @@ app.use(async (ctx, next) => {
         var body = await readBuildJS();
         ctx.response.set("content-type", "text/html");
         ctx.body=body;
+        // ctx.response.redirect("/dist","/index.html")
     } else {
         await next();
     }
