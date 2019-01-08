@@ -52,7 +52,7 @@ class Login extends React.Component {
                         <Checkbox>记住我</Checkbox>
                     )}
                     <Button type="primary" htmlType="submit" className="login-form-button">
-                        Log in
+                        登录
                     </Button>
                 </Form.Item>
             </Form>

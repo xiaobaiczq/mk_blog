@@ -48,9 +48,10 @@ class Game extends React.Component {
     render() {
         const contextPath = 'https://game-1256184526.cos.ap-chengdu.myqcloud.com/mark/';
         return <div><Carousel effect="fade" autoplay>
-            <div><h1 style={{color: "#ad4747"}}><strong>游戏不倒我们不散!</strong></h1></div>
-            <div><img src={contextPath + '47.jpg'}/></div>
-            <div><h1 style={{color: "#ad4747"}}>不知道送你什么好，我把从去年到今年的回忆送你</h1></div>
+            <div><img src={contextPath + 'header1.jpg'}/></div>
+            <div><img src={contextPath + 'header2.jpg'}/></div>
+            <div><img src={contextPath + 'header3.jpg'}/></div>
+            <div><h1 style={{color: "#ad4747"}}><strong>希望你能永远过得开心</strong></h1></div>
         </Carousel>
             <ArticleList history={this.props.history} />
             {/*<audio controls="controls" id="audio" style={{display: "none"}}>*/}
