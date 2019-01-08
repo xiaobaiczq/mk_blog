@@ -6,30 +6,51 @@ import {
     Form, Icon, Input, Button, Checkbox,
 } from 'antd';
 
-export  default  class Login extends React.Component {
+class Login extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                this.props.userLogin(values,this.props.history);
             }
+
         });
     }
 
 
+    componentDidUpdate() {
+        // if (!this.props.userInfo || this.props.userInfo == {}) {
+        //     this.props.history.push("/");
+        // }
+    }
+
     render() {
+        const {getFieldDecorator} = this.props.form;
         return (
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <Form.Item>
-                    <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="Username"/>
+                    {getFieldDecorator('username', {
+                        rules: [{required: true, message: '请输入用户名'}],
+                    })(
+                        <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="xxx闪电"/>
+                    )}
                 </Form.Item>
                 <Form.Item>
-                    <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
-                           placeholder="Password"/>
+                    {getFieldDecorator('password', {
+                        rules: [{required: true, message: '请输入密码'}],
+                    })(
+                        <Input  type="password" prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="游戏结婚的那一天"/>
+                    )}
                 </Form.Item>
                 <Form.Item>
-                    <Checkbox>Remember me</Checkbox>
+                    {getFieldDecorator('remember', {
+                        valuePropName: 'checked',
+                        initialValue: true,
+                    })(
+                        <Checkbox>记住我</Checkbox>
+                    )}
                     <Button type="primary" htmlType="submit" className="login-form-button">
                         Log in
                     </Button>
@@ -40,4 +61,5 @@ export  default  class Login extends React.Component {
 
 }
 
+export  default  Form.create({})(Login);
 

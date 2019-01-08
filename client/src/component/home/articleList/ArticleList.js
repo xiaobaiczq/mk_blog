@@ -36,29 +36,30 @@ class ArticleList extends React.Component {
                      size="large"
                      pagination={{
                          onChange: (page) => {
-                             console.log(page);
+                             // console.log("page:"+page);
                          },
                          pageSize: 3,
                      }}
                      dataSource={articleList}
-                     renderItem={item => (
+                     renderItem={(item,key) => (
                          <List.Item
                              key={item.title}
-
-                             actions={[<IconText type="dashboard" text={item.createTime}/>,
+                             actions={[<IconText type="clock-circle" text={item.publishDate}/>,
                                  <IconText type="eye" text={item.viewNum}/>
                              ]}
                              extra={<img width={272} alt="logo"
                                          src={item.img}/>}
                          >
-                             <List.Item.Meta
-                                 title={<Link to={{
-                                     pathname: item.href,
-                                     search: `?navId=${item.navId}&subNavId=${item.subNavId}&id=${item.id}`,
-                                 }}>{item.title}</Link>}
-                                 description={item.description}
-                             />
-                             {item.content}
+                             <Link to={{
+                                 pathname: "detail",
+                                 search: `?id=${item._id}`,
+                             }}>
+                                 <List.Item.Meta
+                                     title={item.title}
+                                     description={item.content}
+                                 />
+                             </Link>
+
                          </List.Item>
                      )}
         />

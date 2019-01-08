@@ -7,6 +7,7 @@ var articleSchema = new mongoose.Schema({
     img: 'string',
     createTime: 'date',
     viewNum: 'number',
+    publishDate:'string'
 });
 
 var articleModel = new mongoose.model('article', articleSchema, 'article');

@@ -56,24 +56,7 @@ userRouter.get("/REST/user/isLogin",async (ctx,next)=>{
 })
 
 
-userRouter.get("/REST/article/list",async (ctx,next)=>{
-    ctx.body={
-        code: "1",
-        msg: "success",
-        data: {
-            'articleList':[ {
-                'id':  1,
-                title: "标题",
-                "description":"描述",
-                content: "内容",
-                img: "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1061664783,4111033467&fm=173&app=49&f=JPEG?w=218&h=146&s=52943D8DE8A1680F15CD05E10300B096",
-                createTime: new Date(),
-                'viewNum': 1,
-                'likeNum': 1
-            }]
-        }
-    }
-})
+
 
 
 

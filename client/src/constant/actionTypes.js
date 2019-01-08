@@ -11,9 +11,15 @@ export const homeArticleActionsTypes = {
     HOME_GET_ARTICLES_DETAIL_SUCCESS: "HOME_GET_ARTICLES_DETAIL_SUCCESS",
 }
 
+export const articleFormActionTypes={
+    ARTICLE_FORM_ADD_ARTICLE: "ARTICLE_FORM_ADD_ARTICLE"
+}
+
 export const userActionTypes={
     USER_LOGIN:"USER_LOGIN",
-    USER_GET:"USER_GET"
+    USER_LOGIN_SUCCESS:"USER_LOGIN_SUCCESS",
+    USER_GET:"USER_GET",
+    USER_CHECK_LOGIN:"USER_CHECK_LOGIN"
 }
 
 export const globalActionsTypes = {

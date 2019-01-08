@@ -4,7 +4,8 @@ import {
     homeSiderActionsTypes,
     globalActionsTypes,
     homeArticleActionsTypes,
-    userActionTypes
+    userActionTypes,
+    articleFormActionTypes
 } from "../constant/actionTypes";
 import config from "../constant/config";
 
@@ -26,7 +27,11 @@ function* fetchArticleList(action) {
         yield put({type: globalActionsTypes.FETCH_START});
         let userInfoRes = yield call(get, `/user/isLogin`);
         yield put({type: userActionTypes.USER_GET, data: userInfoRes.data||{}});
-        const response = yield call(get, `/article/list?navId=${navId}&subNavId=${subNavId}&pageIndex=${pageIndex}&pageSize=${pageSize}`);
+        if(!userInfoRes.data||userInfoRes.data=={}){
+            return;
+        }
+        // const response = yield call(get, `/article/list?pageIndex=${pageIndex}&pageSize=${pageSize}`);
+        const response = yield call(get, `/article/list`);
         if (response.code == config.CODE_SUCCESS) {
             yield put({type: homeArticleActionsTypes.HOME_GET_ARTICLES_SUCCESS, data: response.data})
         }
@@ -39,17 +44,66 @@ function* fetchArticleList(action) {
 
 function* fetchArticleDetail(action) {
     try {
-        const {navId, subNavId} = action.params;
+        const {id} = action.params;
         yield put({type: globalActionsTypes.FETCH_START})
-        const response = yield call(get, `/article/detail?navId=${navId}&subNavId=${subNavId}`);
+        const response = yield call(get, `/article/detail?id=${id}`);
         if (response.code == config.CODE_SUCCESS) {
             yield put({type: homeArticleActionsTypes.HOME_GET_ARTICLES_DETAIL_SUCCESS, data: response.data})
+        }
+        yield setTimeout(()=>{},2000)
+    } catch (e) {
+        console.error(e)
+    } finally {
+        yield put({type: globalActionsTypes.FETCH_END})
+    }
+}
+
+function* login(action){
+    try {
+        const {history}=action.params;
+        yield put({type: globalActionsTypes.FETCH_START})
+        const response = yield call(post,"/user/login",action.params);
+        if(response.code == config.CODE_SUCCESS){
+            yield put({type: userActionTypes.USER_LOGIN_SUCCESS, data: response.data})
+            yield history.push("/")
+        }else {
+            alert(response.msg);
+        }
+    }catch (e){
+        console.error(e)
+    }finally {
+        yield put({type: globalActionsTypes.FETCH_END})
+    }
+}
+
+
+
+function* checkLogin(action){
+    try {
+        yield put({type: globalActionsTypes.FETCH_START})
+        let userInfoRes = yield call(get, `/user/isLogin`);
+        yield put({type: userActionTypes.USER_GET, data: userInfoRes.data||{}});
+    }catch (e){
+        console.error(e)
+    }finally {
+        yield put({type: globalActionsTypes.FETCH_END})
+    }
+}
+
+function* addArticle(action){
+    try {
+        yield put({type: globalActionsTypes.FETCH_START})
+        const response = yield call(post,"/article/add",action.params);
+        if (response.code == config.CODE_SUCCESS) {
+            alert("add ok");
+            console.log(response.data)
         }
     } catch (e) {
         console.error(e)
     } finally {
         yield put({type: globalActionsTypes.FETCH_END})
     }
+
 }
 
 
@@ -64,4 +118,16 @@ export const homeFetchArticleFlow = function*() {
 
 export const homeArticleDetailFlow = function*() {
     yield takeLatest(homeArticleActionsTypes.HOME_GET_ARTICLES_DETAIL, fetchArticleDetail);
+}
+
+export const addArticleFlow=function*(){
+    yield takeLatest(articleFormActionTypes.ARTICLE_FORM_ADD_ARTICLE, addArticle);
+}
+
+export const checkLoginFlow=function*(){
+    yield takeLatest(userActionTypes.USER_CHECK_LOGIN, checkLogin);
+}
+
+export const userLoginFlow=function*(){
+    yield takeLatest(userActionTypes.USER_LOGIN, login);
 }

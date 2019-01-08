@@ -3,7 +3,6 @@ import "./Detail.less";
 import {Card, Avatar, Icon} from 'antd';
 const {Meta} = Card;
 
-
 class Detail extends React.Component {
 
 
@@ -12,22 +11,25 @@ class Detail extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getArticleDetail({navId: 1, subNavId: 1});
+        let  id= new URLSearchParams(this.props.location.search).get("id");
+        this.props.getArticleDetail({id: id});
+    }
+
+    toHomePage=()=>{
+        this.props.history.push("/");
     }
 
 
     render() {
-        const {content, createTime, description, href, id, img, likeNum, title, viewNum} = this.props.articleDetail;
+        const {content, publishDate, description,  img, title, viewNum} = this.props.articleDetail;
         return <Card className="home-article-detail"
-            actions={[<span><Icon type="dashboard"/>{createTime}</span>, <span><Icon type="eye"/>{viewNum}</span>]}>
+                     cover={<img alt="example" src={img} />}
+            actions={[<span><Icon type="clock-circle" />{publishDate}</span>, <span><Icon type="eye"/>{viewNum}</span>, <span onClick={this.toHomePage}><Icon type="arrow-left" />返回</span>]}>
             <Meta
-                avatar={<Avatar src={img}/>}
+                avatar={<Avatar src={"http://localhost:8888/flash.png"}/>}
                 title={title}
-                description={description}
+                description={content}
             />
-            <div>
-                {content}
-            </div>
         </Card>
     }
 

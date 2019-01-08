@@ -2,11 +2,13 @@ import {connect} from "react-redux"
 import Detail from "../../component/home/detail/Detail";
 import {bindActionCreators} from 'redux';
 import  {startFetching, endFetching} from "../../action/globalAction";
-import  {getArticleDetail} from "../../action/articleAction";
+import  {getArticleDetail,getHomeArticleList} from "../../action/articleAction";
 
 
 const mapStateToProps = (state, ownProps) => {
     return {
+        userInfo:state.home.userInfo,
+        articleList:state.home.articleList,
         articleDetail: state.home.detail,
         isFetching: state.global.isFetching,
         ...ownProps};
@@ -14,9 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        startFetching: bindActionCreators(startFetching, dispatch),
-        endFetching:bindActionCreators(endFetching, dispatch),
-        getArticleDetail: bindActionCreators(getArticleDetail, dispatch)
+        getHomeArticleList: bindActionCreators(getHomeArticleList, dispatch),
+        getArticleDetail:bindActionCreators(getArticleDetail,dispatch)
     }
 }
 

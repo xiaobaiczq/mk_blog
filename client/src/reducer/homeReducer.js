@@ -3,8 +3,8 @@ import {homeSiderActionsTypes,homeArticleActionsTypes,userActionTypes} from "../
 
 const initialState = {
     navList: [],
-    articleList: [],
     userInfo:{},
+    articleList: [],
     detail:{
     }
 }
@@ -22,6 +22,10 @@ function homeReducer(state = initialState, action) {
         case homeArticleActionsTypes.HOME_GET_ARTICLES_DETAIL_SUCCESS: {
             const detail = action.data.detail;
             return {...state,detail}
+        }
+        case userActionTypes.USER_LOGIN_SUCCESS :{
+            const userInfo=action.data.userInfo;
+            return {...state,userInfo};
         }
         case userActionTypes.USER_GET :{
             const userInfo=action.data.userInfo;
