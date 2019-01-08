@@ -1,7 +1,6 @@
 import {Switch, Route, HashRouter as Router, Redirect} from 'react-router-dom';
 import React from "react";
 import {Spin} from "antd";
-import audio1 from "../component/game/audio/1.mp3"
 import ArticleForm from "../container/home/articleFormContainer";
 import {connect} from "react-redux";
 import "./Route.less"
@@ -44,8 +43,8 @@ class Routes extends React.Component {
                     </div>}
                 </div>
             </Router>
-            <audio controls="controls" id="audio" style={{display: "none"}}>
-                <source src={audio1} type="audio/mpeg"/>
+            <audio controls="controls" id="audio" loop="loop" style={{display: "none"}}>
+                <source src={"	https://game-1256184526.cos.ap-chengdu.myqcloud.com/mark/1.mp3"} type="audio/mpeg"/>
                 Your browser does not support the audio element.
             </audio>
         </div>
