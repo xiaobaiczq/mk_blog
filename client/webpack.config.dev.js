@@ -71,7 +71,7 @@ module.exports = {
         new htmlWebpackPlugin({title: "时间再长，也挡不住想你",filename:"index.html"}),
         new cleanWebpackPlugin(['dist']),
         new miniCssExractPlugin({
-            filename: "[name].css"
+            filename: "[name][hash].css"
         })
     ]
 }
