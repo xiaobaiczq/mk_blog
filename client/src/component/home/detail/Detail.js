@@ -35,6 +35,7 @@ class Detail extends React.Component {
                     description={content}
                 />
             </Card>
+            <div className="detail-empty"></div>
         </div>
     }
 
