@@ -2,7 +2,7 @@ import  React from "react";
 import "./Detail.less";
 import {Card, Avatar, Icon} from 'antd';
 const {Meta} = Card;
-import {Row, Col} from 'antd';
+import Zmage from 'react-zmage'
 
 class Detail extends React.Component {
 
@@ -25,7 +25,7 @@ class Detail extends React.Component {
         const {content, publishDate, description, img, title, viewNum} = this.props.articleDetail;
         return <div>
             <Card className="home-article-detail" loading={!content}
-                // cover={<img alt="example" src={img} />}
+                 cover={<Zmage  src={img}/> }
                   actions={[<span><Icon type="clock-circle"/>{publishDate}</span>,
                       <span><Icon type="eye"/>{viewNum}</span>,
                       <span onClick={this.toHomePage}><Icon type="arrow-left"/>返回</span>]}>
