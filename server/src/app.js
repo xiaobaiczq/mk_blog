@@ -11,8 +11,8 @@ var fs = require("fs");
 
 var app = new koa();
 var distPath=path.join(__dirname , '../../client/dist');
-app.use(static(distPath,{maxage:1000*60*60*24*7}));
-app.use(static(__dirname + '/static',{maxage:1000*60*60*24*7}));
+app.use(static(distPath,{maxage:1000*60*15}));
+app.use(static(__dirname + '/static',{maxage:1000*60*15}));
 app.use(bodyparser());
 
 
@@ -47,6 +47,8 @@ app.use(articleRouter.routes()).use(articleRouter.allowedMethods());
 
 app.listen(8888, () => {
     mongoose.connect('mongodb://localhost/mk_blog');
+    // mongoose.connect('mongodb://118.24.75.110:27017/mk_blog');
+
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'db connection error:'));
     db.once('open', function () {
