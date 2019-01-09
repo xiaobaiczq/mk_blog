@@ -1,6 +1,5 @@
 import  React from "react";
 import ArticleList from "../../container/home/articleContainer";
-// import Zmage from 'react-zmage';
 import {Carousel} from 'antd';
 import "./Game.less";
 

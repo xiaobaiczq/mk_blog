@@ -2,6 +2,7 @@ import  React from "react";
 import {Skeleton, List, Icon} from 'antd';
 import {Link} from 'react-router-dom';
 import "./ArticleList.less";
+import Zmage from 'react-zmage'
 
 class ArticleList extends React.Component {
 
@@ -48,7 +49,7 @@ class ArticleList extends React.Component {
                           actions={[<IconText type="clock-circle" text={item.publishDate}/>,
                               <IconText type="eye" text={item.viewNum}/>
                           ]}
-                          extra={<img width={272} alt="logo"
+                          extra={<Zmage width={272} alt="logo"
                                       src={item.img}/>}
                       >
                           <Link to={{
