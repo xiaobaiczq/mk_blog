@@ -53,7 +53,7 @@ class Routes extends React.Component {
                     </div>}
                 </div>
             </Router>
-            <audio controls="controls" id="audio" loop="loop" style={{display: "none"}}>
+            <audio controls="controls" preload id="audio" loop="loop" style={{display: "none"}}>
                 <source src={playList[random]} type="audio/mpeg"/>
                 Your browser does not support the audio element.
             </audio>
