@@ -10,12 +10,10 @@ import  Detail from "../container/home/detailContainer";
 
 class Routes extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
 
     componentDidMount() {
-        setTimeout(this.audioAutoPlay,6000)
+        // setTimeout(this.audioAutoPlay,6000)
+        this.audioAutoPlay();
     }
 
     audioAutoPlay() {
@@ -54,7 +52,7 @@ class Routes extends React.Component {
                 </div>
             </Router>
             <audio controls="controls"  id="audio" loop="loop" style={{display: "none"}}>
-                <source src={playList[random]} type="audio/mpeg"/>
+                <source src={player1} type="audio/mpeg"/>
                 Your browser does not support the audio element.
             </audio>
         </div>
