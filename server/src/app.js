@@ -11,9 +11,10 @@ var fs = require("fs");
 
 var app = new koa();
 var distPath=path.join(__dirname , '../../client/dist');
-app.use(static(distPath,{maxage:1000*60*15}));
-app.use(static(__dirname + '/static',{maxage:1000*60*15}));
+app.use(static(distPath,{maxage:1000*60*60*3}));
+app.use(static(__dirname + '/static',{maxage:1000*60*60*3}));
 app.use(bodyparser());
+
 
 
 function readBuildJS() {

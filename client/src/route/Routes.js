@@ -10,6 +10,10 @@ import  Detail from "../container/home/detailContainer";
 
 class Routes extends React.Component {
 
+    constructor(props){
+        super(props);
+    }
+
     componentDidMount() {
         this.audioAutoPlay();
     }
@@ -25,6 +29,12 @@ class Routes extends React.Component {
 
     render() {
         const isFetching = this.props.isFetching;
+        const uri="https://game-1256184526.cos.ap-chengdu.myqcloud.com/mark";
+        const player1=uri+"/1.mp3";
+        const player2=uri+"/2.mp3";
+        const player3=uri+"/3.mp3";
+        const playList=[player1,player2,player3];
+        const random=Math.floor(Math.random() * 3);
         return <div>
             <Router>
                 <div>
@@ -44,7 +54,7 @@ class Routes extends React.Component {
                 </div>
             </Router>
             <audio controls="controls" id="audio" loop="loop" style={{display: "none"}}>
-                <source src={"	https://game-1256184526.cos.ap-chengdu.myqcloud.com/mark/1.mp3"} type="audio/mpeg"/>
+                <source src={playList[random]} type="audio/mpeg"/>
                 Your browser does not support the audio element.
             </audio>
         </div>
