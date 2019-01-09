@@ -50,7 +50,7 @@ class Game extends React.Component {
             <div><img src={contextPath + 'header1.jpg'}/></div>
             <div><img src={contextPath + 'header2.jpg'}/></div>
             <div><img src={contextPath + 'header3.jpg'}/></div>
-            <div><h1 style={{color: "#4cacad"}}><strong>希望你以后能过得得开心</strong></h1></div>
+            <div><h1 style={{color: "#4cacad"}}><strong>希望你以后能过得开心</strong></h1></div>
         </Carousel>
             <ArticleList history={this.props.history} />
             {/*<audio controls="controls" id="audio" style={{display: "none"}}>*/}
