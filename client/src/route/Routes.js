@@ -7,12 +7,15 @@ import "./Route.less"
 import  Game from "../component/game/Game";
 import  Login from "../container/login/LoginContainer";
 import  Detail from "../container/home/detailContainer";
+import audio1 from "./audio/1.mp3";
+import audio2 from "./audio/2.mp3";
+import audio3 from "./audio/3.mp3";
+
 
 class Routes extends React.Component {
 
 
     componentDidMount() {
-        // setTimeout(this.audioAutoPlay,6000)
         this.audioAutoPlay();
     }
 
@@ -22,6 +25,25 @@ class Routes extends React.Component {
         document.addEventListener("WeixinJSBridgeReady", function () {
             audio.play();
         }, false);
+    }
+
+    switchPlayList(random){
+        if(random==0){
+           return <audio controls="controls"  id="audio" loop="loop" style={{display: "none"}}>
+                <source src={audio1} type="audio/mpeg"/>
+                Your browser does not support the audio element.
+            </audio>
+        }else if(random==1){
+           return  <audio controls="controls"  id="audio" loop="loop" style={{display: "none"}}>
+                <source src={audio2} type="audio/mpeg"/>
+                Your browser does not support the audio element.
+            </audio>
+        }else{
+          return  <audio controls="controls"  id="audio" loop="loop" style={{display: "none"}}>
+                <source src={audio3} type="audio/mpeg"/>
+                Your browser does not support the audio element.
+            </audio>
+        }
     }
 
 
@@ -51,10 +73,11 @@ class Routes extends React.Component {
                     </div>}
                 </div>
             </Router>
-            <audio controls="controls"  id="audio" loop="loop" style={{display: "none"}}>
-                <source src={player1} type="audio/mpeg"/>
-                Your browser does not support the audio element.
-            </audio>
+            {this.switchPlayList(random)}
+            {/*<audio controls="controls"  id="audio" loop="loop" style={{display: "none"}}>*/}
+            {/*<source src={audio2} type="audio/mpeg"/>*/}
+            {/*Your browser does not support the audio element.*/}
+            {/*</audio>*/}
         </div>
     }
 }
