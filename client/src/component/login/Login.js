@@ -32,16 +32,18 @@ class Login extends React.Component {
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <Form.Item>
                     {getFieldDecorator('username', {
+                        initialValue:"陪你看闪电",
                         rules: [{required: true, message: '请输入用户名'}],
                     })(
-                        <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="xxx闪电"/>
+                        <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="xxx闪电" />
                     )}
                 </Form.Item>
                 <Form.Item>
                     {getFieldDecorator('password', {
+                        initialValue:"20181223",
                         rules: [{required: true, message: '请输入密码'}],
                     })(
-                        <Input  type="password" prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="游戏结婚的那一天"/>
+                        <Input  type="password" prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="游戏结婚的那一天" />
                     )}
                 </Form.Item>
                 <Form.Item>
