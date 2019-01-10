@@ -9,11 +9,15 @@ articleRouter.get("/REST/article/list", async (ctx, next) => {
     var {pageIndex, pageSize} = ctx.query;
     if (!pageIndex || !pageSize) {
         await articleModel.find().then(docs => {
+
             ctx.body = {
                 code: "1",
                 msg: "success",
                 data: {
-                    'articleList': docs
+                    'articleList': docs.map((item) => {
+                        item.content="内容已删";
+                        return item;
+                    })
                 }
             }
         }).catch(e => {
@@ -52,6 +56,7 @@ articleRouter.post("/REST/article/add", async (ctx) => {
 articleRouter.get("/REST/article/detail", async (ctx) => {
     var id = ctx.query.id;
     var article = await articleModel.findById(id).then(article => {
+        article.content="内容已删";
         return article;
     }).catch(e => console.log(e));
     await articleModel.updateOne({_id: article._id}, {$set: {viewNum: article.viewNum + 1}}).then(doc => {
@@ -61,6 +66,8 @@ articleRouter.get("/REST/article/detail", async (ctx) => {
         console.log(e);
     })
 })
+
+
 
 
 module.exports = articleRouter;

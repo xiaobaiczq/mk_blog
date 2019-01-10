@@ -46,7 +46,7 @@ app.use(async (ctx, next) => {
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(articleRouter.routes()).use(articleRouter.allowedMethods());
 
-app.listen(8888, () => {
+app.listen(9999, () => {
     mongoose.connect('mongodb://localhost/mk_blog');
     // mongoose.connect('mongodb://118.24.75.110:27017/mk_blog');
 

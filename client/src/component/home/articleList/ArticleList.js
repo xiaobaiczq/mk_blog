@@ -57,7 +57,7 @@ class ArticleList extends React.Component {
                           }}>
                               <List.Item.Meta
                                   title={item.title}
-                                  description={"内容已删"}
+                                  description={item.content.slice(0, 100)}
                               />
                           </Link>
 
