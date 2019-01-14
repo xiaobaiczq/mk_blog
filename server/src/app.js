@@ -15,8 +15,6 @@ app.use(static(distPath,{maxage:1000*60*60*3}));
 app.use(static(__dirname + '/static',{maxage:1000*60*60*3}));
 app.use(bodyparser());
 
-
-
 function readBuildJS() {
     return new Promise((resolve, reject) => {
         var body = "";
@@ -37,6 +35,7 @@ app.use(async (ctx, next) => {
         var body = await readBuildJS();
         ctx.response.set("content-type", "text/html");
         ctx.body=body;
+
         // ctx.response.redirect("/dist","/index.html")
     } else {
         await next();
@@ -46,10 +45,9 @@ app.use(async (ctx, next) => {
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(articleRouter.routes()).use(articleRouter.allowedMethods());
 
-app.listen(9999, () => {
+app.listen(8888, () => {
     mongoose.connect('mongodb://localhost/mk_blog');
     // mongoose.connect('mongodb://118.24.75.110:27017/mk_blog');
-
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'db connection error:'));
     db.once('open', function () {
