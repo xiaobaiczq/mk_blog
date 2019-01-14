@@ -7,6 +7,7 @@ var userRouter = require("./router/UserRouter");
 var articleRouter = require("./router/ArticleRouter");
 var mongoose = require('mongoose');
 var fs = require("fs");
+const session = require('koa-session');
 
 
 var app = new koa();
@@ -14,6 +15,8 @@ var distPath=path.join(__dirname , '../../client/dist');
 app.use(static(distPath,{maxage:1000*60*60*3}));
 app.use(static(__dirname + '/static',{maxage:1000*60*60*3}));
 app.use(bodyparser());
+
+app.use(session({key:'userInfo',maxAge:1000*60*30,signed:false}, app));
 
 function readBuildJS() {
     return new Promise((resolve, reject) => {
@@ -46,8 +49,8 @@ app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(articleRouter.routes()).use(articleRouter.allowedMethods());
 
 app.listen(8888, () => {
-    mongoose.connect('mongodb://localhost/mk_blog');
-    // mongoose.connect('mongodb://118.24.75.110:27017/mk_blog');
+    // mongoose.connect('mongodb://localhost/mk_blog');
+    mongoose.connect('mongodb://118.24.75.110:27017/mk_blog');
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'db connection error:'));
     db.once('open', function () {
