@@ -35,7 +35,7 @@ class Routes extends React.Component {
         const player4=uri+"/4.mp3";
         const player5=uri+"/5.mp3";
         const playList=[player1,player2,player3,player4,player5];
-        const random=Math.floor(Math.random() * 3);
+        const random=Math.floor(Math.random() * 5);
         return <div>
             <Router>
                 <div>
