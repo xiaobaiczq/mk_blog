@@ -24,7 +24,7 @@ class Detail extends React.Component {
     render() {
         const {content, publishDate, description, img, title, viewNum} = this.props.articleDetail;
         return <div>
-            <Card className="home-article-detail" loading={true}
+            <Card className="home-article-detail" loading={!content}
                  cover={<Zmage  src={img}/> }
                   actions={[<span><Icon type="clock-circle"/>{publishDate}</span>,
                       <span><Icon type="eye"/>{viewNum}</span>,

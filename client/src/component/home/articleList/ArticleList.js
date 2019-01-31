@@ -31,6 +31,7 @@ class ArticleList extends React.Component {
         if (articleList.length === 0) {
             return <div className="home-article-list"></div>
         }
+        console.log(articleList)
         return <div>
             <List className="home-article-list"
                   itemLayout="vertical"
