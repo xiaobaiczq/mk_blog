@@ -32,10 +32,10 @@ class Login extends React.Component {
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <Form.Item>
                     {getFieldDecorator('username', {
-                        initialValue:"女神",
+                        initialValue:"raoguolin",
                         rules: [{required: true, message: '请输入用户名'}],
                     })(
-                        <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="古月胡" />
+                        <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="用户名" />
                     )}
                 </Form.Item>
                 <Form.Item>

@@ -68,7 +68,7 @@ module.exports = {
         extensions: [".jsx", ".js"]
     },
     plugins: [
-        new htmlWebpackPlugin({title: "Hey，你好吗",filename:"index.html"}),
+        new htmlWebpackPlugin({title: "云烟成雨",filename:"index.html"}),
         new cleanWebpackPlugin(['dist']),
         new miniCssExractPlugin({
             filename: "[name][hash].css"
