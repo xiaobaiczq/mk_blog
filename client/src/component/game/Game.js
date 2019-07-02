@@ -21,7 +21,7 @@ class Game extends React.Component {
     }
 
     componentDidMount() {
-        // this.audioAutoPlay();
+        this.audioAutoPlay();
     }
 
     audioAutoPlay() {
@@ -49,16 +49,16 @@ class Game extends React.Component {
         return <div><Carousel effect="fade" autoplay>
             <div><img src={contextPath + 'header1.jpg'}/></div>
             <div><img src={contextPath + 'header3.jpg'}/></div>
-            <div><img src={contextPath + 'header4.jpg'}/></div>
-            <div><img src={contextPath + 'header5.jpg'}/></div>
-            <div><img src={contextPath + 'header6.jpg'}/></div>
+            {/*<div><img src={contextPath + 'header4.jpg'}/></div>*/}
+            {/*<div><img src={contextPath + 'header5.jpg'}/></div>*/}
+            {/*<div><img src={contextPath + 'header6.jpg'}/></div>*/}
             {/*<div><h1 style={{color: "#4cacad"}}><strong>希望你以后能过得开心</strong></h1></div>*/}
         </Carousel>
             <ArticleList history={this.props.history} />
-            {/*<audio controls="controls" id="audio" style={{display: "none"}}>*/}
-                {/*<source src={audio1} type="audio/mpeg"/>*/}
-                {/*Your browser does not support the audio element.*/}
-            {/*</audio>*/}
+            <audio controls="controls" id="audio" style={{display: "none"}}>
+                <source src={audio1} type="audio/mpeg"/>
+                Your browser does not support the audio element.
+            </audio>
         </div>
 
     }
