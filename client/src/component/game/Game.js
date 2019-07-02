@@ -21,7 +21,7 @@ class Game extends React.Component {
     }
 
     componentDidMount() {
-        this.audioAutoPlay();
+        // this.audioAutoPlay();
     }
 
     audioAutoPlay() {
@@ -55,10 +55,10 @@ class Game extends React.Component {
             {/*<div><h1 style={{color: "#4cacad"}}><strong>希望你以后能过得开心</strong></h1></div>*/}
         </Carousel>
             <ArticleList history={this.props.history} />
-            <audio controls="controls" id="audio" style={{display: "none"}}>
-                <source src={audio1} type="audio/mpeg"/>
-                Your browser does not support the audio element.
-            </audio>
+            {/*<audio controls="controls" id="audio" style={{display: "none"}}>*/}
+            {/*    <source src={audio1} type="audio/mpeg"/>*/}
+            {/*    Your browser does not support the audio element.*/}
+            {/*</audio>*/}
         </div>
 
     }
